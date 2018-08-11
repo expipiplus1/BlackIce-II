@@ -509,6 +509,9 @@ setup(void)
 		if (ice40_reset() != OK)
 			uart_puts("reset failed\n");
 		else if (rbits(rbyte_mem_send, 0) != OK)
+			/* It's possible to see this if you didn't set the ACM device to raw mode
+			 * On Linux this can be done with a command like: stty -F /dev/ttyACM0 raw
+			 */
 			uart_puts("rbits failed\n");
 		else if (ice40_configdone() != OK)
 			uart_puts("configdone failed\n");
