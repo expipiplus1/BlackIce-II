@@ -512,7 +512,7 @@ setup(void)
 			/* It's possible to see this if you didn't set the ACM device to raw mode
 			 * On Linux this can be done with a command like: stty -F /dev/ttyACM0 raw
 			 */
-			uart_puts("rbits failed\n");
+			uart_puts("rbits failed, run stty to change ACM device to raw mode?\n");
 		else if (ice40_configdone() != OK)
 			uart_puts("configdone failed\n");
 		spi_detach();
